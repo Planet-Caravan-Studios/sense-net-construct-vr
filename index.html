@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title>Text</title>
+    <meta name="description" content="Sense/Net Construct">
+    <script src="/a-frame-scripts/aframe-master.js"></script>
+  </head>
+  <body>
+    
+    <a-scene background="color: #333">
+      <a-assets>
+        <a-mixin
+          id="marker"
+          geometry="primitive: plane; width: 0.02; height: 0.02"
+          material="color: red"
+        ></a-mixin>
+        <a-mixin
+          id="halfMeterExample"
+          geometry="primitive: plane; width: 0.5; height: 0.5"
+          material="color: red"
+          text="width: 2.5; wrapCount: 50; color: white; font: sourcecodepro; align: center;
+                value: 0.5m"
+        ></a-mixin>
+      </a-assets>
+
+      
+
+      <!-- <a-entity mixin="marker" position="-1 2 0.01"></a-entity>
+      <a-entity position="-1 2 0"
+                text="width: 2; lineHeight: 50; letterSpacing: 5; color: white; value: [LINE AND LETTER SPACING] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+      </a-entity> -->
+      <!-- <a-entity mixin="halfMeterExample" position="0 0 0"></a-entity> -->
+
+      <!-- Interface Panels -->
+      <a-entity position="0 1.75 0">
+        <a-entity
+            position="0 0.25 0.5"
+            geometry="primitive: plane; width:auto; height:auto;"
+            material="color: #00FF00"
+            text="width: 2.5; wrapCount: 50; lineHeight: 50; letterSpacing: 5; 
+                color: white; font: sourcecodepro; anchor: center; align: center;
+                value: Sense/Net Construct v0.0_initial_tests"
+        ></a-entity>
+
+        <a-entity
+            id="center_panel"
+            position="0 0 0"
+            geometry="primitive: plane; width:4; height:2;"
+            material="color: #000000"
+            text="width: 3; wrapCount: 80; lineHeight: 50; letterSpacing: 5;
+                color: white; font: sourcecodepro; align: left;
+                value: Main Panel | size: 4x2 | pos: 0 0 0"
+        ></a-entity>
+
+        <!-- Side Panels - START -->
+        <a-entity
+            id="left_side_panel"
+            position="-2.6 0 0"
+            geometry="primitive: plane; width:1; height:2;"
+            material="color: #666"
+            text="width: 0.9;  wrapCount: 20; lineHeight: 50; letterSpacing: 5;
+                color: white; font: sourcecodepro; align: center;
+                value: Left Side Panel"
+        ></a-entity>
+        <a-entity
+            id="left_side_panel"
+            position="2.6 0 0"
+            geometry="primitive: plane; width:1; height:2;"
+            material="color: #666"
+            text="width: 0.9;  wrapCount: 20; lineHeight: 50; letterSpacing: 5;
+                color: white; font: sourcecodepro; align: center;
+                value: Right Side Panel"
+        ></a-entity>
+        <!-- Side Panels - END -->
+
+        <!-- Top/Bottom Panels - START -->
+        <a-entity
+            id="top_panel"
+            position="0 1.35 0"
+            geometry="primitive: plane; width:4; height:0.5;"
+            material="color: #666"
+            text="width: 1.5;  wrapCount: 30; lineHeight: 50; letterSpacing: 5;
+                color: white; font: sourcecodepro; align: center;
+                value: Top Tools Panel"
+        ></a-entity>
+        <a-entity
+            id="bottom_panel"
+            position="0 -1.35 0"
+            geometry="primitive: plane; width:4; height:0.5;"
+            material="color: #666"
+            text="width: 1.5;  wrapCount: 30; lineHeight: 50; letterSpacing: 5;
+                color: white; font: sourcecodepro; align: center;
+                value: Bottom Tools Panel"
+        ></a-entity>
+      </a-entity>
+
+      <a-entity position="0 1.8 2">
+        <a-entity camera look-controls wasd-controls></a-entity>
+      </a-entity>
+      <a-plane color="#CCC" height="10" width="10" rotation="-90 0 0"></a-plane>
+
+    </a-scene>
+  </body>
+</html>
