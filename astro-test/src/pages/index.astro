@@ -1,0 +1,62 @@
+---
+/*========================================*/
+/*	PAGE: Home/Index
+		NOTES:	
+*/
+/*========================================*/
+
+//Essential Components
+	import Layout from '@layouts/Layout.astro';
+
+//Content Components
+	//import MasterComponent from '@components/MasterComponent.astro';
+	import LinkCards from '@components/contentComponents/LinkCards.astro';
+	import SplitLayout from '@components/contentLayouts/SplitLayout.astro';
+	//import SampleForm from '@components/Forms/SampleForm.astro';
+	//import DisplayBits from '@components/DisplayBits.astro';
+---
+
+<Layout 
+	title="Index"
+	heading="Working Source Files"
+>
+	
+	<section>
+		<h2 class="text-size-3">Web Marketing Plugin Suite</h2>
+		<p class="text-size-2">
+			This code repo is for the working source files for the following plugins:			
+		</p>
+		<ul class="text-size-2">
+			
+		</ul>
+	</section>
+	
+	<section>
+		<LinkCards/>	
+	</section>
+
+	<section class="noPadding">
+		<SplitLayout>
+			<Fragment slot="left-slot"> 
+				<h2>Scan To Open On Mobile</h2>
+				<p>This QR code simply links to the page you're looking at right now.</p>
+			</Fragment>
+			<Fragment slot="right-slot"> 
+				<div id="qrcode"></div>
+				<script type="text/javascript">
+					document.addEventListener("DOMContentLoaded", function(e){
+						//runs code after DOM load
+						new QRCode(document.getElementById("qrcode"), "https://sense-net-vr-construct.netilfy.app");
+					});
+				</script>
+			</Fragment>
+		</SplitLayout>
+	</section>
+	
+	<section>
+		WARNING: This site/project is for working source files and should not be publically referenced, as the important files are subject to change or being temporarily mid-update. Plugin files should only be publically referenced via their official plugin repos that recieve complete milestone updates.
+	</section>
+
+</Layout>
+
+
