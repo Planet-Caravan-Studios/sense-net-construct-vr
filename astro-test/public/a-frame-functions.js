@@ -8,7 +8,7 @@
 		const clockText = document.getElementById('LiveClock').getAttribute('text');
 
     console.log("==clock tick==");
-		document.getElementById('LiveClock').setAttribute('text', clockText.replace('$time', timeString));
+		document.getElementById('LiveClock').setAttribute('value', timeString);
 		//document.getElementById('LiveClock').flushToDom(true);
 		return false;
 	}
