@@ -2,6 +2,8 @@
 //Essential Components
 	import AFrameLayout from '@layouts/AFrameLayout.astro';
 	import LiveClock from '@components/AFrameComponents/LiveClock.astro';
+	import SessionTimer from '@components/AFrameComponents/SessionTimer.astro';
+	import TaskTimer from '@components/AFrameComponents/TaskTimer.astro';
 ---
 
 <AFrameLayout 
@@ -43,6 +45,8 @@
 		text="width: 0.9;  wrapCount: 20; lineHeight: 50; letterSpacing: 5; color: white; font: sourcecodepro; align: center; value: Left Side Panel"
 		>
 			<LiveClock/>
+			<SessionTimer/>
+			<TaskTimer/>
 		</a-entity>
 
 		<a-entity

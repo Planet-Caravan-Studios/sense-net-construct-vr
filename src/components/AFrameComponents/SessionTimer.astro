@@ -1,29 +1,23 @@
 ---
-interface Props {
-	title: string;
-	subtitle: string;
-	body: string;
-	href: string;
-}
 
-const { title, subtitle, body, href } = Astro.props;
+const {} = Astro.props;
 ---
 
 <a-entity
 	
-	position="0.65 0.65 0.5"
+	position="0.65 0.55 0.5"
 	geometry="primitive: plane; width:0.65; height:0.075;"
 	material="color: #00FF00"
 >
 	<a-text 
 		position="0.2 0.01 0"
-		value="Real World Time: "
+		value="Session Timer: "
 		width="1" wrapCount="50" lineHeight="50" letterSpacing="5" 
 		color="white" font="sourcecodepro" anchor="center" align="left"
 	></a-text>
 	<a-text 
 		position="0.6 0.01 0"
-		id="LiveClock" value="$time"
+		id="SessionTimer" value="$sessionTimer"
 		width="1" wrapCount="50" lineHeight="50" letterSpacing="5" 
 		color="white" font="sourcecodepro" anchor="center" align="left"
 	></a-text>
