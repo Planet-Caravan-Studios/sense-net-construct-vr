@@ -14,25 +14,28 @@
 	import SplitLayout from '@components/contentLayouts/SplitLayout.astro';
 	//import SampleForm from '@components/Forms/SampleForm.astro';
 	//import DisplayBits from '@components/DisplayBits.astro';
+
+	import StopwatchTimer from '@components/Timers/StopwatchTimer.astro';
+	import PomodoroTimer from '@components/Timers/PomodoroTimer.astro';
 ---
 
 <Layout 
-	title="Index"
-	heading="Sense/Net VR Constructs"
+	title="Tools Test"
+	heading="Text-Based Tools Testing"
 >
 	
 	<section>
-		<h2 class="text-size-3">VR Constructs</h2>
+		<h2 class="text-size-3">Timers</h2>
 		<p class="text-size-2">
-			This code repo is for the working source files for the following plugins:			
+			Demos for in-VR timer tools using just plain text. 
+			<br/><br/>
+			To-do: add an additional prop to toggle the functions between using regular text and data-attribute text for VR.
 		</p>
 		<ul class="text-size-2">
-			
+			<li>Session Timer: <span id="sessionTimer">00:00:00</span></li>
+			<li>StopWatch Timer: <StopwatchTimer/></li>
+			<li>Pomodoro Timer: <PomodoroTimer/></li>
 		</ul>
-	</section>
-	
-	<section>
-		<LinkCards/>	
 	</section>
 
 	<section class="noPadding">
@@ -53,10 +56,12 @@
 		</SplitLayout>
 	</section>
 	
-	<section>
-		WARNING: This site/project is for working source files and should not be publically referenced, as the important files are subject to change or being temporarily mid-update. Plugin files should only be publically referenced via their official plugin repos that recieve complete milestone updates.
-	</section>
+	
 
+	
 </Layout>
 
 
+<script>
+
+</script>

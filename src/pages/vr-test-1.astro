@@ -1,6 +1,8 @@
 ---
 //Essential Components
 	import AFrameLayout from '@layouts/AFrameLayout.astro';
+	import CameraCursor from '@components/AFrameComponents/CameraCursor.astro';
+//Feature Components
 	import LiveClock from '@components/AFrameComponents/LiveClock.astro';
 	import SessionTimer from '@components/AFrameComponents/SessionTimer.astro';
 	import TaskTimer from '@components/AFrameComponents/TaskTimer.astro';
@@ -11,13 +13,34 @@
 	heading="Working Source Files"
 >
 	
-<a-scene background="color: #333" debug>
+<a-scene 
+	background="color: #333" 
+	debug
+	raycaster="far: 100; "
+	ui-controller
+	cursor="rayOrigin: mouse"
+	camera-position
+	environment
+	info-message="htmlSrc: #messageText"
+>
 	<a-assets>
-	  <a-mixin
-		id="marker"
-		geometry="primitive: plane; width: 0.02; height: 0.02"
-		material="color: red"
-	  ></a-mixin>
+		<a-mixin
+			id="marker"
+			geometry="primitive: plane; width: 0.02; height: 0.02"
+			material="color: red"
+		></a-mixin>
+
+		<a-mixin
+			id="tile" 
+			tile="width: 0.400; height: 0.285"
+			animation__scale="property: scale; to: 1.02 1.02 1.02; dur: 100; startEvents: mouseenter"
+			animation__scale_reverse="property: scale; to: 1 1 1; dur: 100; startEvents: mouseleave"
+		></a-mixin>
+		<a-mixin
+			id="focus-animation"
+			animation__scale="property: object3D.position.z; to: -0.05; dur: 100; startEvents: unfocused"
+			animation__scale_reverse="property: object3D.position.z; to: 0; dur: 100; startEvents: focused">
+		</a-mixin>
 	</a-assets>
 
 	<a-entity position="0 1.75 0">
@@ -50,7 +73,7 @@
 		</a-entity>
 
 		<a-entity
-			id="left_side_panel"
+			id="right_side_panel"
 			position="2.6 0 0"
 			geometry="primitive: plane; width:1; height:2;"
 			material="color: #666"
@@ -58,7 +81,7 @@
 		></a-entity>
 		<!-- Side Panels - END -->
 
-	  <!-- Top/Bottom Panels - START -->
+	<!-- Top/Bottom Panels - START -->
 	  <a-entity
 		  id="top_panel"
 		  position="0 1.35 0"
@@ -75,9 +98,20 @@
 	  ></a-entity>
 	</a-entity>
 
-	<a-entity position="0 1.8 2">
+	<!-- <a-entity position="0 1.8 2">
 	  <a-entity camera look-controls wasd-controls></a-entity>
-	</a-entity>
+	</a-entity> -->
+
+	<a-box 
+		id="HoverTestCube"
+		position="-1 0.5 1" rotation="0 45 0" color="#4CC3D9"
+		event-set__enter="_event: mouseenter; color: #8FF7FF"
+		event-set__leave="_event: mouseleave; color: #4CC3D9"
+	></a-box>
+
+	<CameraCursor/>
+
+
 	<a-plane color="#CCC" height="10" width="10" rotation="-90 0 0"></a-plane>
 
   </a-scene>
