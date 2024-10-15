@@ -14,7 +14,7 @@
 		return false;
 	}
 
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(){
   //runs code after DOM load
   // Initial call
 	updateTime();
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   var timer = new Timer();
   timer.start();
 
-  timer.addEventListener('secondsUpdated', function (e) {
+  timer.addEventListener('secondsUpdated', function () {
     console.log("==timer tick==");
     document.getElementById('SessionTimer').setAttribute('value', timer.getTimeValues().toString());
   });
