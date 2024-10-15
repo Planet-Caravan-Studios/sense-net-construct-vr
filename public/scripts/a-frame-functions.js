@@ -13,7 +13,7 @@
 		return false;
 	}
 
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(){
   //runs code after DOM load
   // Initial call
 	updateTime();

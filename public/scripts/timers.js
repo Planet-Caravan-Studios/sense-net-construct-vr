@@ -2,7 +2,7 @@ function SessionTimer(elementID){
     const timer = new Timer();
     timer.start();
 
-    timer.addEventListener('secondsUpdated', function (e) {
+    timer.addEventListener('secondsUpdated', function () {
         document.querySelector(`${elementID}`).innerHTML  = (timer.getTimeValues().toString());
     });
 }
@@ -23,15 +23,15 @@ function StopWatchTimer(elementID){
         timer.start();
     }, false);
 
-    timer.addEventListener('secondsUpdated', function (e) {
+    timer.addEventListener('secondsUpdated', function () {
         document.querySelector('#chronoExample .values').innerHTML = (timer.getTimeValues().toString());
     });
 
-    timer.addEventListener('started', function (e) {
+    timer.addEventListener('started', function () {
         document.querySelector('#chronoExample .values').innerHTML = (timer.getTimeValues().toString());
     });
 
-    timer.addEventListener('reset', function (e) {
+    timer.addEventListener('reset', function () {
         document.querySelector('#chronoExample .values').innerHTML = (timer.getTimeValues().toString());
     });
 }
@@ -58,11 +58,11 @@ function PomodoroTimer(elementID, timer1Time, timer2Time, timer1ResetText, timer
         //document.querySelector('#pomodoroTimerTest .timer1').innerHTML = timer1.getTimeValues().toString();
         document.querySelector(`${elementID} .timer1`).innerHTML = timer1.getTimeValues().toString();
 
-        timer1.addEventListener('secondsUpdated', function (e) {
+        timer1.addEventListener('secondsUpdated', function () {
             document.querySelector(`${elementID} .timer1`).innerHTML = timer1.getTimeValues().toString();
         });
 
-        timer1.addEventListener('targetAchieved', function (e) {
+        timer1.addEventListener('targetAchieved', function () {
             messageFlash(timer1EndMessage);
             timer2Start(timer2Time);
             document.querySelector(`${elementID} .timer1`).innerHTML = timer1ResetText;
@@ -72,11 +72,11 @@ function PomodoroTimer(elementID, timer1Time, timer2Time, timer1ResetText, timer
     function timer2Behavior(){
         document.querySelector(`${elementID} .timer2`).innerHTML = timer2.getTimeValues().toString();
 
-        timer2.addEventListener('secondsUpdated', function (e) {
+        timer2.addEventListener('secondsUpdated', function () {
             document.querySelector(`${elementID} .timer2`).innerHTML = timer2.getTimeValues().toString();
         });
 
-        timer2.addEventListener('targetAchieved', function (e) {
+        timer2.addEventListener('targetAchieved', function () {
             messageFlash(timer2EndMessage);
             timer1Start(timer1Time);
             document.querySelector(`${elementID} .timer2`).innerHTML = timer2ResetText;
@@ -91,7 +91,7 @@ function PomodoroTimer(elementID, timer1Time, timer2Time, timer1ResetText, timer
 
 
 //Run Functions - move to on-page
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(){
     SessionTimer("#sessionTimer");
     StopWatchTimer();
     //PomodoroTimer("#pomodoroTimerTest", 30, 10);
