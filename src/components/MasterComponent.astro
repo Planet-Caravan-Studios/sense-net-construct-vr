@@ -1,17 +1,11 @@
 ---
-interface Props {
-	title: string;
-	subtitle: string;
-	body: string;
-	href: string;
-}
 
-const { title, subtitle, body, href } = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
 <div class="MasterComponent">
 	<h2 class="title">
-		{title && "Title Text"}
+		{title ? title : "Title Text"}
 	</h2>
 	<p class="tagline">
 		{subtitle && "Subtitle Text"}
