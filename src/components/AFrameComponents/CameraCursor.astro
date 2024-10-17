@@ -4,19 +4,22 @@ const {position} = Astro.props;
 ---
 
 <a-entity position="0 1.8 2" look-controls camera>
-	<a-entity position="0 0 0.65">
-		<a-text position="1 1 0.01" width="1" wrapCount="50" color="white" font="sourcecodepro">TEST</a-text>
+	<!-- <a-entity position="0 0 0.65">
+		<a-text position="0.1 0.1 0.01" width="1" wrapCount="50" color="white" font="sourcecodepro">TEST</a-text>
 		<a-text position="0 0 0.01" width="1" wrapCount="50" color="white" font="sourcecodepro">⌝</a-text>
 		<a-text position="0 0 0.01" width="1" wrapCount="50" color="white" font="sourcecodepro">⌞</a-text>
 		<a-text position="0 0 0.01" width="1" wrapCount="50" color="white" font="sourcecodepro">⌟</a-text>
-	</a-entity>
+	</a-entity> -->
 	<a-entity 
+		cursor 
+		fuse="true"
+		fuse-timeout=“1000”
 		class="camera-cursor"
-		raycaster="objects: .tile, .start-button, .close-button"
-		cursor fuse="true"
-		geometry="primitive: plane; width:0.05; height:0.05;"
+		raycaster="objects: .clickable"
+		geometry="primitive: plane; width:0.025; height:0.025;"
 		material="color: #FF0000; shader: flat"
-		position="0 0 -0.75"
+		position="0 0 -0.15"
+		animation__fusing="property: position; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 0 0 -0.15; to: 0 0 -0.35"
 	></a-entity>
 </a-entity>
 
