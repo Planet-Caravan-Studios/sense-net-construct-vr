@@ -7,7 +7,7 @@ function updateTime() {
 	const timeString = `${hours}:${minutes}:${seconds}`;
 	const clockText = document.getElementById('LiveClock').getAttribute('text');
 
-	console.log("==clock tick==");
+	//console.log("==clock tick==");
 	document.getElementById('LiveClock').setAttribute('value', timeString);
 	//document.getElementById('LiveClock').flushToDom(true);
 	return false;
@@ -36,4 +36,51 @@ document.addEventListener("DOMContentLoaded", function(){
 	element.addEventListener('click', function() {
 		toggleColor(element);
 	});
+});
+
+
+
+function cursorEvents(){
+	let element = document.querySelector('#cursor');
+	element.addEventListener('fusing', function() {
+		//what happens on fusing
+		console.log("EVENT | cursor state: fusing");
+	});
+	element.addEventListener('click', function() {
+		//what happens on click
+		console.log("EVENT | cursor state: click");
+	});
+}
+
+function updateTextOnClick(){
+	let element = document.querySelector('#ClickEventTester');
+	let textElement = element.querySelector('.updatableText');
+	element.addEventListener('fusing', function() {
+		//what happens on fusing
+		element.setAttribute("material", "color: #00FF00; side: double;");
+		textElement.setAttribute(`value`, `fusing`);
+	});
+
+	element.addEventListener('click', function() {
+		//what happens on click
+		element.setAttribute("material", "color: #0000FF; side: double;");
+		textElement.setAttribute(`value`, `click`);
+	});
+
+	element.addEventListener('mouseenter', function() {
+		//what happens on click
+		element.setAttribute("material", "color: #0000FF; side: double;");
+		textElement.setAttribute(`value`, `mouseenter`);
+	});
+
+	element.addEventListener('mouseleave', function() {
+		//what happens on click
+		element.setAttribute("material", "color: #0000FF; side: double;");
+		textElement.setAttribute(`value`, `mouseleave`);
+	});
+}
+
+document.addEventListener("DOMContentLoaded", function(){	
+	cursorEvents();
+	updateTextOnClick();
 });

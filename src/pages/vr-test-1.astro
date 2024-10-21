@@ -2,25 +2,31 @@
 //Essential Components
 	import AFrameLayout from '@layouts/AFrameLayout.astro';
 	import CameraCursor from '@components/AFrameComponents/CameraCursor.astro';
+	import GroundPlane from '@components/AFrameComponents/GroundPlane.astro';
+	import CameraCorners from '@components/AFrameComponents/CameraCorners.astro';
 //Feature Components
 	import LiveClock from '@components/AFrameComponents/LiveClock.astro';
 	import SessionTimer from '@components/AFrameComponents/SessionTimer.astro';
 	import TaskTimer from '@components/AFrameComponents/TaskTimer.astro';
+
+	import ClickTestObject from '@components/AFrameComponents/ClickTestObject.astro';
 ---
 
 <AFrameLayout 
-	title="Plugins"
+	title="VR_Test_1"
 	heading="Working Source Files"
 >
-	
+
+<CameraCorners/>
+
 <a-scene 
 	background="color: #333" 
 	raycaster="far: 100; "
 	ui-controller
 	camera-position
 	environment
-	stats
 	info-message="htmlSrc: #messageText"
+	loading-screen="dotsColor: red; backgroundColor: black"
 >
 	<a-assets>
 		<a-mixin
@@ -100,25 +106,12 @@
 	  ></a-entity>
 	</a-entity>
 
-	<!-- <a-entity position="0 1.8 2">
-	  <a-entity camera look-controls wasd-controls></a-entity>
-	</a-entity> -->
-
-	<a-box 
-		id="ClickTestCube"
-		class="clickable"
-		position="-1 0.5 1" rotation="0 45 0" color="#4CC3D9"
-		
-	></a-box>
+	<ClickTestObject/>
 
 	<CameraCursor/>
 
-
-	<!-- <a-plane color="#CCC" height="10" width="10" rotation="-90 0 0"></a-plane> -->
-	<a-plane src="#groundTexture" rotation="-90 0 0" width="100" height="100"></a-plane>
+	<GroundPlane/>
 
   </a-scene>
 
 </AFrameLayout>
-
-
