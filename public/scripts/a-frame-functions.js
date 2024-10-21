@@ -55,6 +55,12 @@ function cursorEvents(){
 function updateTextOnClick(){
 	let element = document.querySelector('#ClickEventTester');
 	let textElement = element.querySelector('.updatableText');
+	
+	function resetText(){
+		element.setAttribute("material", "color: #0000FF; side: double;");
+		textElement.setAttribute(`value`, `Aim Reticule to Fuse-Click (1.5s)`);
+	}
+	
 	element.addEventListener('fusing', function() {
 		//what happens on fusing
 		element.setAttribute("material", "color: #00FF00; side: double;");
@@ -76,7 +82,12 @@ function updateTextOnClick(){
 	element.addEventListener('mouseleave', function() {
 		//what happens on click
 		element.setAttribute("material", "color: #0000FF; side: double;");
-		textElement.setAttribute(`value`, `mouseleave`);
+		textElement.setAttribute(`value`, `mouseleave, resetting...`);
+
+		//reset
+		setTimeout(() => {
+			resetText();
+		}, 3000); //time in ms
 	});
 }
 
