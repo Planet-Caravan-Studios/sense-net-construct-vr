@@ -1,0 +1,33 @@
+---
+//Essential Components
+	import AAR-ayout from '@layouts/AR-Layout.astro';
+	import CameraCursor from '@components/AFrameComponents/CameraCursor.astro';
+	import GroundPlane from '@components/AFrameComponents/GroundPlane.astro';
+	import CameraCorners from '@components/AFrameComponents/CameraCorners.astro';
+//Feature Components
+	import LiveClock from '@components/AFrameComponents/LiveClock.astro';
+	import SessionTimer from '@components/AFrameComponents/SessionTimer.astro';
+	import TaskTimer from '@components/AFrameComponents/TaskTimer.astro';
+
+	import ClickTestObject from '@components/AFrameComponents/ClickTestObject.astro';
+---
+
+<AR-Layout 
+	title="VR_Test_1"
+	heading=""
+>
+
+<!-- <CameraCorners/> -->
+
+<a-scene embedded arjs>
+	<a-marker preset="hiro">
+		<a-entity
+		position="0 0 0"
+		scale="0.05 0.05 0.05"
+		gltf-model="/3d-objects/test-building.gltf"
+		></a-entity>
+	</a-marker>
+	<a-entity camera></a-entity>
+</a-scene>
+
+</AR-Layout>
