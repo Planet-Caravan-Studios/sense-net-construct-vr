@@ -1,18 +1,10 @@
 ---
 //Essential Components
-	import AAR-ayout from '@layouts/AR-Layout.astro';
-	import CameraCursor from '@components/AFrameComponents/CameraCursor.astro';
-	import GroundPlane from '@components/AFrameComponents/GroundPlane.astro';
-	import CameraCorners from '@components/AFrameComponents/CameraCorners.astro';
-//Feature Components
-	import LiveClock from '@components/AFrameComponents/LiveClock.astro';
-	import SessionTimer from '@components/AFrameComponents/SessionTimer.astro';
-	import TaskTimer from '@components/AFrameComponents/TaskTimer.astro';
-
-	import ClickTestObject from '@components/AFrameComponents/ClickTestObject.astro';
+	import ARLayout from '@layouts/AR-Layout.astro';
+	
 ---
 
-<AR-Layout 
+<ARLayout 
 	title="VR_Test_1"
 	heading=""
 >
@@ -30,4 +22,4 @@
 	<a-entity camera></a-entity>
 </a-scene>
 
-</AR-Layout>
+</ARLayout>
