@@ -52,5 +52,13 @@ const {} = Astro.props;
 			background: var(--black);
 			color: var(--white);
 		}
+
+		@media (max-width: 1000px) {
+			/* Activates BELOW 1000px, aka DESKTOP-FIRST */
+			flex-direction: column;
+			.leftSlot, .rightSlot{
+				width: 100%;
+			}
+		}
 	}
 </style>

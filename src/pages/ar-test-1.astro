@@ -5,18 +5,18 @@
 ---
 
 <ARLayout 
-	title="VR_Test_1"
+	title="AR_Test_1"
 	heading=""
 >
 
 <a-scene 
-	mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind; filterMinCF:0.1; filterBeta: 10;"
+	mindar-image="imageTargetSrc: /misc/marker-1.mind; filterMinCF:0.1; filterBeta: 10;"
 	color-space="sRGB" 
 	renderer="colorManagement: true, physicallyCorrectLights" 
 	vr-mode-ui="enabled: false" 
 	device-orientation-permission-ui="enabled: false">
 	<a-assets>
-		<img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.png" />
+		<!-- <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.png" /> -->
 		<a-asset-item id="avatarModel" src="/3d-objects/test-building/scene.gltf"></a-asset-item>
 	</a-assets>
 

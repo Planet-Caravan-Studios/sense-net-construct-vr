@@ -58,6 +58,10 @@
 			&.noPadding{
 				padding: 0;
 			}
+			@media (max-width: 1000px) {
+				/* Activates BELOW 1000px, aka DESKTOP-FIRST */
+				padding: var(--padding-1) var(--padding-1);
+			}
 		}
 
 

@@ -25,6 +25,16 @@ const {} = Astro.props;
 		</div>
 	</div>
 
+	<div class="Card">
+		<h2>Augmented Reality Demo</h2>
+		<p>
+			Open link, point your camera at a marker image, and see a 3D model appear.
+		</p>
+		<div class="link">
+			<a href="/ar-test-1">[Open AR Construct]</a>
+		</div>
+	</div>
+
 	<!-- <div class="Card">
 		<h2>Kink Construct</h2>
 		<p>
@@ -45,11 +55,14 @@ const {} = Astro.props;
 		justify-content: center;
 		align-items: flex-start;
 		flex-direction: row;
+		flex-wrap: wrap;
 		margin: -1rem;
 	}
 	.Card{
-		width: 100%;
-		max-width:400px;
+		max-width: 100%;
+		width:350px;
+		//flex:1;
+		align-self: stretch;
 		border: var(--border-settings-main);
 		box-shadow: var(--shadow-1);
 		padding: 1rem;
