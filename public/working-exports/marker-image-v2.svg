@@ -1,0 +1,36 @@
+<svg width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="12.5" y="12.5" width="225" height="225" fill="white" stroke="black" stroke-width="25"/>
+<rect x="40" y="170" width="40" height="40" stroke="black" stroke-width="10"/>
+<rect x="55" y="185" width="10" height="10" fill="black"/>
+<rect x="165" y="205" width="10" height="10" fill="black"/>
+<rect x="165" y="165" width="10" height="10" fill="black"/>
+<rect x="205" y="205" width="10" height="10" fill="black"/>
+<rect x="205" y="165" width="10" height="10" fill="black"/>
+<rect x="185" y="185" width="10" height="10" fill="black"/>
+<rect x="185" y="165" width="10" height="10" fill="black"/>
+<rect x="205" y="185" width="10" height="10" fill="black"/>
+<rect x="185" y="205" width="10" height="10" fill="black"/>
+<rect x="165" y="185" width="10" height="10" fill="black"/>
+<path d="M40 40H80V80H40V40Z" stroke="black" stroke-width="10"/>
+<rect x="55" y="55" width="10" height="10" fill="black"/>
+<rect x="170" y="40" width="40" height="40" stroke="black" stroke-width="10"/>
+<rect x="185" y="55" width="10" height="10" fill="black"/>
+<path d="M35 120H85V130H35V120Z" fill="black"/>
+<path d="M35 100H85V110H35V100Z" fill="black"/>
+<path d="M35 140H85V150H35V140Z" fill="black"/>
+<path d="M100 185H150V195H100V185Z" fill="black"/>
+<path d="M100 165H150V175H100V165Z" fill="black"/>
+<path d="M100 205H150V215H100V205Z" fill="black"/>
+<path d="M100 55H150V65H100V55Z" fill="black"/>
+<path d="M100 35H150V45H100V35Z" fill="black"/>
+<path d="M100 75H150V85H100V75Z" fill="black"/>
+<path d="M165 120H215V130H165V120Z" fill="black"/>
+<path d="M165 100H215V110H165V100Z" fill="black"/>
+<path d="M165 140H215V150H165V140Z" fill="black"/>
+<rect x="120" y="120" width="10" height="10" fill="black"/>
+<rect x="110" y="120" width="10" height="10" fill="black"/>
+<path d="M120 110H130V120H120V110Z" fill="black"/>
+<rect x="120" y="130" width="10" height="10" fill="black"/>
+<rect x="130" y="120" width="10" height="10" fill="black"/>
+<rect x="105" y="105" width="40" height="40" stroke="black" stroke-width="10"/>
+</svg>

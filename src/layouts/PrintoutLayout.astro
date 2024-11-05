@@ -2,6 +2,8 @@
 //Styles
 	import "@styles/main.scss"
 
+	import QRCode from '@components/QRCode.astro';
+
 //Props
 	const { title, description, heading } = Astro.props;
 
@@ -35,14 +37,24 @@
 		
 		<header class="headerSection">
 			<div class="logo">
-				<a href="/">
-					[I]
-				</a>
+				<QRCode link="https://sense-net-vr-construct.netlify.app/ar-test-1/"/>
+				<!-- <div id="printoutQRCode"></div>
+				<script type="text/javascript">
+					document.addEventListener("DOMContentLoaded", function(){
+						//runs code after DOM load
+						new QRCode(document.getElementById("printoutQRCode"), "https://sense-net-vr-construct.netilfy.app");
+					});
+				</script> -->
 			</div>
 			<div class="text">
-				<div class="top">Interzone Technology Group</div>
-				<div class="bottom">
+				<div class="top">Interzone Technology Group | Augmented Reality Hologram Display</div>
+				<div class="middle">
 					<h1>{heading}</h1>
+				</div>
+				<div class="bottom">
+					<p>
+						Instructions: Scan the QR code to open the asset link, then point your phone's camera at the marker image below to view the asset.
+					</p>
 				</div>
 			</div>
 			
@@ -53,7 +65,7 @@
 		</main>
 
 		<footer class="footerSection">
-			<div>Brought to you by Interzone Technology Group</div>
+			<div>Interzone Technology Group</div>
 		</footer>
 
 		
@@ -83,7 +95,7 @@
 		border: var(--border-settings-main);
 		border-bottom: 0;
 		max-width: var(--container-width);
-		height: 150px;
+		height: 300px;
 		margin: auto;
 		
 		display: flex;
@@ -93,7 +105,7 @@
 
 
 		.logo{
-			width: 200px;
+			width: 300px;
 			height: 100%;
 			padding: 1rem;
 			font-size: 3rem;
@@ -101,7 +113,7 @@
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			background: var(--black);
+			//background: var(--black);
 			color: var(--white);
 			a{
 				color: var(--white);
@@ -121,7 +133,17 @@
 				padding: 1rem 1rem;
 				width: 100%;
 				border-bottom: var(--border-settings-main);
-				height: 50px;
+				height: 25%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+			}
+			.middle{
+				padding: 1rem 1rem;
+				width: 100%;
+				border-bottom: var(--border-settings-main);
+				height: 25%;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -130,7 +152,7 @@
 			.bottom{
 				padding: 1rem 1rem;
 				width: 100%;
-				height: 100px;
+				height: 50%;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
