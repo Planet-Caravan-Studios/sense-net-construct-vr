@@ -15,18 +15,6 @@
 <rect x="55" y="55" width="10" height="10" fill="black"/>
 <rect x="170" y="40" width="40" height="40" stroke="black" stroke-width="10"/>
 <rect x="185" y="55" width="10" height="10" fill="black"/>
-<path d="M35 120H85V130H35V120Z" fill="black"/>
-<path d="M35 100H85V110H35V100Z" fill="black"/>
-<path d="M35 140H85V150H35V140Z" fill="black"/>
-<path d="M100 185H150V195H100V185Z" fill="black"/>
-<path d="M100 165H150V175H100V165Z" fill="black"/>
-<path d="M100 205H150V215H100V205Z" fill="black"/>
-<path d="M100 55H150V65H100V55Z" fill="black"/>
-<path d="M100 35H150V45H100V35Z" fill="black"/>
-<path d="M100 75H150V85H100V75Z" fill="black"/>
-<path d="M165 120H215V130H165V120Z" fill="black"/>
-<path d="M165 100H215V110H165V100Z" fill="black"/>
-<path d="M165 140H215V150H165V140Z" fill="black"/>
 <rect x="120" y="120" width="10" height="10" fill="black"/>
 <rect x="110" y="120" width="10" height="10" fill="black"/>
 <path d="M120 110H130V120H120V110Z" fill="black"/>
