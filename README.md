@@ -1,8 +1,7 @@
-# Simple Showcase Template | Planet Caravan Studios
+# Sense/Net VR Constructs | Interzone Technology Group
 
-Use this template to showcase components and ideas in a simple standalone manner.  It includes a sandbox area for the demo component and a text area for explaining how it works.
-
-This template can be found at: https://github.com/Planet-Caravan-Studios/simple-showcase-template
+Libraries in use:
+- Preset Environments: <https://github.com/supermedium/aframe-environment-component>
 
 ---
 
