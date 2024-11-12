@@ -2,9 +2,9 @@
 //Essential Components
 	import ARLayout from '@layouts/AR-Layout.astro';
 
-	const defaultRotation = "wall"; // "flat" or "wall"
+	let defaultRotation = "wall"; // "flat" or "wall"
 	let rotationSetting = "";
-	if(defaultRotation === "flat"){
+	if(defaultRotation == "flat"){
 		rotationSetting = "90 0 0";
 	}else{
 		rotationSetting = "0 0 0";
