@@ -29,7 +29,7 @@
 	mindar-image="imageTargetSrc: /markers/complex-marker-v1.mind"
 	color-space="sRGB" 
 	renderer="colorManagement: true, physicallyCorrectLights" 
-	vr-mode-ui="enabled: false" 
+	vr-mode-ui="false" 
 	device-orientation-permission-ui="enabled: false"
 >
 	<a-assets>
@@ -88,6 +88,13 @@
 			border: solid 2px #FFF;
 			color: #FFF;
 			font-size: clamp(18px, 5vw, 36px);
+			display: none; // Hide buttons by default
+		}
+
+		// Show the appropriate button based on the current rotation setting
+		&[data-current-rotation="wall"] .controlButton[data-control-button="flat"],
+		&[data-current-rotation="flat"] .controlButton[data-control-button="wall"] {
+			display: block;
 		}
 	}
 </style>
@@ -95,20 +102,30 @@
 <script>
 	function positionSet(){
 		let objectWrapper = document.querySelector('#objectWrapper');
+		let controlsContainer = document.querySelector('.controls');
 		let controlButtonWall = document.querySelector('.controlButton[data-control-button="wall"]');
 		let controlButtonFlat = document.querySelector('.controlButton[data-control-button="flat"]');
 
-		controlButtonWall.addEventListener('click', function() {
+		function updateButtonVisibility(rotationSetting) {
+			controlsContainer.setAttribute('data-current-rotation', rotationSetting);
+		}
+
+		controlButtonWall?.addEventListener('click', function() {
 			console.log("controlButtonWall click");
-			objectWrapper.setAttribute("data-rotation-setting", "wall");
-			objectWrapper.setAttribute("rotation", "0 0 0");
+			objectWrapper?.setAttribute("data-rotation-setting", "wall");
+			objectWrapper?.setAttribute("rotation", "0 0 0");
+			updateButtonVisibility("wall");
 		});
 
-		controlButtonFlat.addEventListener('click', function() {
+		controlButtonFlat?.addEventListener('click', function() {
 			console.log("controlButtonFlat click");
-			objectWrapper.setAttribute("data-rotation-setting", "flat");
-			objectWrapper.setAttribute("rotation", "90 0 0");
+			objectWrapper?.setAttribute("data-rotation-setting", "flat");
+			objectWrapper?.setAttribute("rotation", "90 0 0");
+			updateButtonVisibility("flat");
 		});
+
+		// Initialize button visibility based on initial rotation setting
+		updateButtonVisibility(objectWrapper?.getAttribute("data-rotation-setting") || "flat");
 	}
 
 	
@@ -118,15 +135,22 @@
 		const params = new URLSearchParams(window.location.search);
 		const position = params.get('position');
 		let objectWrapper = document.querySelector('#objectWrapper');
+		let controlsContainer = document.querySelector('.controls');
+
+		function updateButtonVisibility(rotationSetting) {
+			controlsContainer?.setAttribute('data-current-rotation', rotationSetting);
+		}
 
 		if (position === 'wall') {
 			console.log("URL position: wall");
-			objectWrapper.setAttribute("data-rotation-setting", "wall");
-			objectWrapper.setAttribute("rotation", "0 0 0");
+			objectWrapper?.setAttribute("data-rotation-setting", "wall");
+			objectWrapper?.setAttribute("rotation", "0 0 0");
+			updateButtonVisibility("wall");
 		} else if (position === 'flat') {
 			console.log("URL position: flat"); 
-			objectWrapper.setAttribute("data-rotation-setting", "flat");
-			objectWrapper.setAttribute("rotation", "90 0 0");
+			objectWrapper?.setAttribute("data-rotation-setting", "flat");
+			objectWrapper?.setAttribute("rotation", "90 0 0");
+			updateButtonVisibility("flat");
 		}
 	}
 
