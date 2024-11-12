@@ -1,6 +1,14 @@
 ---
 //Essential Components
 	import ARLayout from '@layouts/AR-Layout.astro';
+
+	const defaultRotation = "wall"; // "flat" or "wall"
+	let rotationSetting = "";
+	if(defaultRotation === "flat"){
+		rotationSetting = "90 0 0";
+	}else{
+		rotationSetting = "0 0 0";
+	}
 	
 ---
 
@@ -50,7 +58,7 @@
 	>
 		<a-entity
 			id="objectWrapper"
-			rotation="90 0 0"
+			rotation={rotationSetting ? rotationSetting : "90 0 0"}
 			data-rotation-setting="flat"
 		>
 			<!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
@@ -107,7 +115,7 @@
 		let controlButtonFlat = document.querySelector('.controlButton[data-control-button="flat"]');
 
 		function updateButtonVisibility(rotationSetting) {
-			controlsContainer.setAttribute('data-current-rotation', rotationSetting);
+			controlsContainer?.setAttribute('data-current-rotation', rotationSetting);
 		}
 
 		controlButtonWall?.addEventListener('click', function() {
