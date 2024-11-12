@@ -50,8 +50,8 @@
 	>
 		<a-entity
 			id="objectWrapper"
-			rotation="0 0 0"
-			data-rotation-setting="wall"
+			rotation="90 0 0"
+			data-rotation-setting="flat"
 		>
 			<!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
 			<a-gltf-model 
@@ -114,4 +114,22 @@
 	
 	document.addEventListener('DOMContentLoaded', positionSet); 
 	
+	function checkUrlPosition() {
+		const params = new URLSearchParams(window.location.search);
+		const position = params.get('position');
+		let objectWrapper = document.querySelector('#objectWrapper');
+
+		if (position === 'wall') {
+			console.log("URL position: wall");
+			objectWrapper.setAttribute("data-rotation-setting", "wall");
+			objectWrapper.setAttribute("rotation", "0 0 0");
+		} else if (position === 'flat') {
+			console.log("URL position: flat"); 
+			objectWrapper.setAttribute("data-rotation-setting", "flat");
+			objectWrapper.setAttribute("rotation", "90 0 0");
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', checkUrlPosition);
+
 </script>
