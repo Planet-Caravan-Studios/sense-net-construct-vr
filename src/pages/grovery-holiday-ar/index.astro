@@ -1,0 +1,167 @@
+---
+//Essential Components
+	import ARLayout from '@layouts/AR-Layout.astro';
+
+	let defaultRotation = "wall"; // "flat" or "wall"
+	let rotationSetting = "";
+	if(defaultRotation == "flat"){
+		rotationSetting = "90 0 0";
+	}else{
+		rotationSetting = "0 0 0";
+	}
+	
+---
+
+<ARLayout 
+	title="AR_Test_1"
+	heading=""
+>
+
+<div class="controls">
+	<div 
+		class="controlButton" 
+		data-control-button="wall"
+	>
+		Wall/90 degrees
+	</div>
+
+	<div 
+		class="controlButton" 
+		data-control-button="flat"
+	>
+		Flat/0 degrees
+	</div>
+</div>
+
+<a-scene 
+	mindar-image="imageTargetSrc: /markers/complex-marker-v1.mind"
+	color-space="sRGB" 
+	renderer="colorManagement: true, physicallyCorrectLights" 
+	vr-mode-ui="false" 
+	device-orientation-permission-ui="enabled: false"
+>
+	<a-assets>
+		<!-- <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.png" /> -->
+		<a-asset-item 
+			id="displayModel" 
+			src="/3d-objects/snowman/scene.gltf"
+		></a-asset-item>
+	</a-assets>
+
+	<a-camera 
+		position="0 0 0" 
+		look-controls="enabled: false"
+	></a-camera>
+
+	<a-entity 
+		mindar-image-target="targetIndex: 0"
+	>
+		<a-entity
+			id="objectWrapper"
+			rotation={rotationSetting ? rotationSetting : "90 0 0"}
+			data-rotation-setting="flat"
+		>
+			<!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
+			<a-gltf-model 
+				rotation="0 0 0" 
+				position="0 0 0.1" 
+				scale="0.05 0.05 0.05" 
+				src="#displayModel"
+				animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"
+			/>
+		</a-entity>
+	</a-entity>
+</a-scene>
+
+</ARLayout>
+
+
+<style lang="scss">
+	.controls{
+		position: fixed;
+		z-index: 500000;
+		bottom: 5px;
+		left: 50%;
+		transform:translate(-50%, 0%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		max-width: 500px;
+		margin: auto;
+
+		.controlButton{
+			width: 175px;
+			margin: 0 10px;
+			border: solid 2px #FFF;
+			color: #FFF;
+			font-size: clamp(18px, 5vw, 36px);
+			display: none; // Hide buttons by default
+		}
+
+		// Show the appropriate button based on the current rotation setting
+		&[data-current-rotation="wall"] .controlButton[data-control-button="flat"],
+		&[data-current-rotation="flat"] .controlButton[data-control-button="wall"] {
+			display: block;
+		}
+	}
+</style>
+
+<script>
+	function positionSet(){
+		let objectWrapper = document.querySelector('#objectWrapper');
+		let controlsContainer = document.querySelector('.controls');
+		let controlButtonWall = document.querySelector('.controlButton[data-control-button="wall"]');
+		let controlButtonFlat = document.querySelector('.controlButton[data-control-button="flat"]');
+
+		function updateButtonVisibility(rotationSetting) {
+			controlsContainer?.setAttribute('data-current-rotation', rotationSetting);
+		}
+
+		controlButtonWall?.addEventListener('click', function() {
+			console.log("controlButtonWall click");
+			objectWrapper?.setAttribute("data-rotation-setting", "wall");
+			objectWrapper?.setAttribute("rotation", "0 0 0");
+			updateButtonVisibility("wall");
+		});
+
+		controlButtonFlat?.addEventListener('click', function() {
+			console.log("controlButtonFlat click");
+			objectWrapper?.setAttribute("data-rotation-setting", "flat");
+			objectWrapper?.setAttribute("rotation", "90 0 0");
+			updateButtonVisibility("flat");
+		});
+
+		// Initialize button visibility based on initial rotation setting
+		updateButtonVisibility(objectWrapper?.getAttribute("data-rotation-setting") || "flat");
+	}
+
+	
+	document.addEventListener('DOMContentLoaded', positionSet); 
+	
+	function checkUrlPosition() {
+		const params = new URLSearchParams(window.location.search);
+		const position = params.get('position');
+		let objectWrapper = document.querySelector('#objectWrapper');
+		let controlsContainer = document.querySelector('.controls');
+
+		function updateButtonVisibility(rotationSetting) {
+			controlsContainer?.setAttribute('data-current-rotation', rotationSetting);
+		}
+
+		if (position === 'wall') {
+			console.log("URL position: wall");
+			objectWrapper?.setAttribute("data-rotation-setting", "wall");
+			objectWrapper?.setAttribute("rotation", "0 0 0");
+			updateButtonVisibility("wall");
+		} else if (position === 'flat') {
+			console.log("URL position: flat"); 
+			objectWrapper?.setAttribute("data-rotation-setting", "flat");
+			objectWrapper?.setAttribute("rotation", "90 0 0");
+			updateButtonVisibility("flat");
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', checkUrlPosition);
+
+</script>

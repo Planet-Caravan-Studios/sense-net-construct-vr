@@ -37,11 +37,11 @@
 			<section class="left-section">
 				
 				<div class="text-content">
-					<h1>{heading}</h1>
+					<h1>{heading ? heading : "3d Object Preview"}</h1>
 					<slot>
 						<div class="metaDetails">
-							<p class="clientName">Frank V Radomski & Sons | XYZ Building Project</p>
-							<p class="companyName">Interzone Technology Group | Augmented Reality Hologram Display</p>
+							<p class="clientName">Client Name | Project Name</p>
+							<p class="companyName">Company Name | Product Series Name</p>
 						</div>
 						<div class="bodyText">
 							<p class="instructions">
@@ -52,6 +52,7 @@
 					
 					<div class="QRCodeWrapper">
 						<QRCode link={qrcode}/>
+						<a href={qrcode} target="_blank">{qrcode}</a>
 					</div>
 
 				</div>
@@ -79,18 +80,18 @@
 <style lang="scss">
 	
 	html, body{
-		overflow: hidden;
+		//overflow: hidden;
 		padding: 0;
 		margin: 0;
 	}
 
 	main.fullscreen-layout {
 		display: flex;
-		height: 100vh;
-		width: 100vw;
+		//height: 100vh;
+		//width: 100vw;
 		margin: 0;
 		padding: 0;
-		overflow: hidden;
+		//overflow: hidden;
 	}
 
 	.left-section,
@@ -122,6 +123,27 @@
 		img{
 			max-width: 300px;
 			height: auto;
+		}
+		a{
+			font-size: 0.8rem;
+			margin-top: 1rem;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			text-decoration: none;
+			background-color: var(--accent-color);
+			color: var(--background-color);
+			padding: 0.5rem 1rem;
+			&::before{
+				content: "[";
+				font-size: 1.5em;
+				text-decoration: none;
+			}
+			&::after{
+				content: "]";
+				font-size: 1.5em;
+			}
 		}
 	}
 
