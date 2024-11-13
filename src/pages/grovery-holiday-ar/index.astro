@@ -42,14 +42,14 @@ if(defaultRotation == "flat"){
 		class="controlButton" 
 		data-control-button="wall"
 	>
-		View: Wall
+		Switch View: Wall
 	</div>
 
 	<div 
 		class="controlButton" 
 		data-control-button="flat"
 	>
-		View: Flat
+		Switch View: Flat
 	</div>
 </div>
 
@@ -123,11 +123,13 @@ device-orientation-permission-ui="enabled: false"
 	margin: auto;
 
 	.controlButton{
-		width: 175px;
+		//width: 175px;
 		margin: 0 10px;
 		border: solid 2px #FFF;
+		padding: 0.25em 0.5em;
 		color: #FFF;
 		font-size: clamp(18px, 5vw, 36px);
+		text-align: center;
 		display: none; // Hide buttons by default
 	}
 
