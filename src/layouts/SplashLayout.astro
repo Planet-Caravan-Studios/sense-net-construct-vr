@@ -27,7 +27,7 @@
 		<!-- ===== ================== ===== -->
 		<!-- ===== Javascript Plugins ===== -->
 		<!-- ===== ================== ===== -->
-
+		<script is:inline src="/scripts/qrcode.js"></script>
 		
 	</head>
 	<body>
@@ -51,7 +51,7 @@
 					</slot>
 					
 					<div class="QRCodeWrapper">
-						<QRCode link={qrcode}/>
+						<QRCode link={qrcode} id="qrcode" />
 						<a href={qrcode} target="_blank">{qrcode}</a>
 					</div>
 
